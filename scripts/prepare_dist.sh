@@ -12,6 +12,3 @@ mv client/dist pipecat_ai_small_webrtc_prebuilt/client
 
 # Build the dist
 python setup.py sdist
-
-# Removing the dist from inside the module
-rm -rf pipecat_ai_small_webrtc_prebuilt/client/
