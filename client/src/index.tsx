@@ -5,6 +5,7 @@ import {
 } from "@pipecat-ai/voice-ui-kit";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { SmallWebRTCTransport } from "@pipecat-ai/small-webrtc-transport";
 
 //@ts-ignore - fontsource-variable/geist is not typed
 import "@fontsource-variable/geist";
@@ -21,6 +22,14 @@ createRoot(document.getElementById("root")!).render(
             connectionUrl: "/api/offer",
           }}
           transportType="smallwebrtc"
+          clientOptions={{
+            transport: new SmallWebRTCTransport({
+              waitForICEGathering: true,
+              iceServers: [
+                { urls: "stun:stun.l.google.com:19302" },
+              ],
+            }),
+          }}
         />
       </FullScreenContainer>
     </ThemeProvider>
